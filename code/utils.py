@@ -80,6 +80,29 @@ def normalized_kernel(K):
     S = K / (D * D.T)
     return S
 
+def load_data(directory):
+    D_SSM1 = np.loadtxt(directory + '/D_SSM1.txt')
+    D_SSM2 = np.loadtxt(directory + '/D_SSM2.txt')
+    D_GSM = np.loadtxt(directory + '/D_GSM.txt')
+    M_FSM = np.loadtxt(directory + '/M_FSM.txt')
+    M_GSM = np.loadtxt(directory + '/M_GSM.txt')
+    D_SSM = (D_SSM1 + D_SSM2) / 2
+
+    ID = np.zeros(shape=(D_SSM.shape[0], D_SSM.shape[1]))
+    IM = np.zeros(shape=(M_FSM.shape[0], M_FSM.shape[1]))
+    for i in range(D_SSM.shape[0]):
+        for j in range(D_SSM.shape[1]):
+            if D_SSM[i][j] == 0:
+                ID[i][j] = D_GSM[i][j]
+            else:
+                ID[i][j] = D_SSM[i][j]
+    for i in range(M_FSM.shape[0]):
+        for j in range(M_FSM.shape[1]):
+            if M_FSM[i][j] == 0:
+                IM[i][j] = M_GSM[i][j]
+            else:
+                IM[i][j] = M_FSM[i][j]
+    return ID, IM
 
 class Sizes(object):
     def __init__(self, mira_size, disease_size):
