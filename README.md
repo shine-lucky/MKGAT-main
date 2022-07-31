@@ -3,8 +3,7 @@
 
 # Data description
 * association: the miRNA_disease association matrix, which contain 5430 associations between 495 miRNAs and 383 diseases.
-* sd: integrated disease similarity matrix.
-* sm: integrated mirna similarity matrix.
+
 
 # Environment Requirements
 * Python 3.7
