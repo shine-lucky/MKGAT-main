@@ -4,7 +4,7 @@ import random
 import gc
 
 from clac_metric import get_metrics
-from utils import constructHNet, constructNet, get_edge_index, Sizes
+from utils import constructHNet, constructNet, get_edge_index,load_data, Sizes
 import torch as t
 from torch import optim
 from loss import Myloss
