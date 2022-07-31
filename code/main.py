@@ -68,10 +68,10 @@ def PredictScore(train_mirna_disease_matrix, mirna_matrix, disease_matrix, seed,
 
 if __name__ == "__main__":
     data_path = '../data/dateset/'
-    data_set = 'MDA2.0/'
+    data_set = 'data/'
 
-    mirna_sim = np.loadtxt(data_path + data_set + 'sm.csv', delimiter=',')
-    disease_sim = np.loadtxt(data_path + data_set + 'sd.csv')
+
+    disease_sim,mirna_sim = load_data(data_path + data_set)
     mirna_disease = np.loadtxt(data_path + data_set + 'association.csv', delimiter=',')
     sizes = Sizes(mirna_disease.shape[0], mirna_disease.shape[1])
 
